@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Services\Sources\Guardian\seeder as GuardianSeeder;
+use App\Services\Sources\NewsApi\seeder as NewsApiSeeder;
+use App\Services\Sources\NYT\seeder as NYTSeeder;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,11 +16,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        GuardianSeeder::run();
+        
+        NYTSeeder::run();
+        
+        NewsApiSeeder::run();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
     }
 }

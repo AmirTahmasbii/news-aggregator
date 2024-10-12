@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('api_key');
-            $table->json('categories');
+            $table->json('categories')->nullable();
             $table->timestamps();
         });
     }

@@ -112,4 +112,9 @@ return [
 
     'password_timeout' => env('AUTH_PASSWORD_TIMEOUT', 10800),
 
+    'api_key' => [
+        'guardian' => env('GUARDIAN_API_KEY'),
+        'nyt' => env('NYT_API_KEY'),
+        'news_api' => env('NEWSAPI_API_KEY'),
+    ]
 ];
