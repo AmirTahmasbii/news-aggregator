@@ -28,9 +28,22 @@ class client
         return $categories;
     }
 
-    public function fetch()
-    {
-        $response = $this->api->content()->fetch();
+    public function fetch(
+        $q = '',
+        $category = '',
+        $page_size = 199,
+        $page = 1
+    ) {
+        $response = $this->api
+            ->content()
+            ->setQuery($q)
+            ->setShowTags('keyword')
+            ->setShowFields('trailText')
+            ->setShowReferences('author')
+            ->setSection($category)
+            ->setPageSize($page_size)
+            ->setPage($page)
+            ->fetch();
 
         return $response->response->results;
     }

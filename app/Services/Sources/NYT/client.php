@@ -12,9 +12,9 @@ class client
 
     public function __construct()
     {
-        $api_key = Source::where('name', 'NYT')->first();
+        $source = Source::where('name', 'NYT')->first();
 
-        $this->api = new NewsApi($api_key);
+        $this->api = new NewsApi($source->api_key);
     }
 
     public function getCategories()

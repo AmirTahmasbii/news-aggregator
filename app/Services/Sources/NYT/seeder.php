@@ -10,11 +10,11 @@ class seeder
     {
         $source = Source::create([
             'name' => 'NYT',
-            'api_key' => config('auth.api_key.news_api'),
+            'api_key' => config('auth.api_key.nyt'),
         ]);
 
         $categories = (new client)->getCategories();
-        $source->categories = json_encode($categories);
+        $source->categories = $categories;
         $source->save();
     }
 }
