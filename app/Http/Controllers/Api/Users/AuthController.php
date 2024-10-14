@@ -29,7 +29,7 @@ class AuthController extends Controller
 
         $user->tokens()->delete();
 
-        $token = $user->createToken('bearer');
+        $token = $user->createToken('bearer', ['*'], now()->addWeek());
 
         return response()->json(['status' => 'success', 'data' => ['token' => $token->plainTextToken]]);
     }
@@ -45,7 +45,7 @@ class AuthController extends Controller
             'email' => $validatedData['email'],
         ]);
 
-        $token = $user->createToken('bearer');
+        $token = $user->createToken('bearer', ['*'], now()->addWeek());
 
         return response()->json(['status' => 'success', 'data' => ['token' => $token->plainTextToken]]);
     }

@@ -45,8 +45,8 @@ class seeder
 
                 $database[] = [
                     'author' => $articles->author,
-                    'keywords' => json_encode($item),
-                    'categories' => json_encode($item),
+                    'keyword' => $item,
+                    'category' => $item,
                     'content' => $articles->content,
                     'published_date' => Carbon::parse($articles->publishedAt)->format('Y-m-d H:i:s'),
                     'source_id' => (static::$source)->id,

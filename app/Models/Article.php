@@ -11,8 +11,8 @@ class Article extends Model
 
     protected $fillable = [
         'author',
-        'keywords',
-        'categories',
+        'keyword',
+        'category',
         'content',
         'published_date',
         'source_id',
@@ -21,18 +21,5 @@ class Article extends Model
     public function source()
     {
         return $this->belongsTo(Source::class);
-    }
-    
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'categories' => 'array',
-            'keywords' => 'array',
-        ];
     }
 }

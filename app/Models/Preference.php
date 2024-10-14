@@ -16,7 +16,7 @@ class Preference extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'source',
+        'source_id',
         'categories',
         'authors',
         'user_id',
@@ -26,6 +26,7 @@ class Preference extends Model
     {
         return $this->belongsTo(Source::class);
     }
+    
     /**
      * Get the attributes that should be cast.
      *

@@ -20,7 +20,7 @@ Route::prefix('/preference')->middleware('auth:sanctum')->controller(PreferenceC
 });
 
 Route::prefix('/article')->middleware('auth:sanctum')->controller(ArticleController::class)->group(function(){
+    Route::get('/feed', 'feed');
     Route::get('/', 'fetch');
     Route::get('/{article}', 'retrieve');
-    Route::get('/feed', 'feed');
 });

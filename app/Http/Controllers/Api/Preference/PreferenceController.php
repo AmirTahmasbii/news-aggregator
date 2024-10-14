@@ -24,19 +24,19 @@ class PreferenceController extends Controller
     public function set(SetRequest $request)
     {
         $validatedData = $request->validated();
-
+        
         $preference = Preference::updateOrCreate(
             [
                 'user_id' => auth()->id(),
             ],
             [
-                'source_id' => Source::find($validatedData['source'])->id ?? '',
-                'categories' => $validatedData['categories'] ?? '',
+                'source_id' => Source::where('name', $validatedData['source'])->first()->id ?? '',
+                'categories' => explode(',', $validatedData['categories']) ?? '',
                 'authors' => $validatedData['authors'] ?? '',
                 'user_id' => auth()->id(),
             ]
         );
-
+        
         return response()->json(['status' => 'success', 'data' => new PreferenceResource($preference)]);
     }
 }
