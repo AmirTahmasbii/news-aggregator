@@ -17,8 +17,25 @@ class Preference extends Model
      */
     protected $fillable = [
         'source',
-        'category',
-        'author',
+        'categories',
+        'authors',
         'user_id',
     ];
+
+    public function source()
+    {
+        return $this->belongsTo(Source::class);
+    }
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'categories' => 'array',
+            'authors' => 'array',
+        ];
+    }
 }

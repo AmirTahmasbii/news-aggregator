@@ -29,7 +29,7 @@ class RegisterRequest extends FormRequest
             'family' => 'required|min:3|string',
             'password' => ['required', 'confirmed', Password::min(8)->letters()->mixedCase()->numbers()->symbols()],
             'password_confirmation' => ['required', Password::min(8)->letters()->mixedCase()->numbers()->symbols()],
-            'email' => 'required|email|unique:App\Models\User,email',
+            'email' => 'required|email|unique:users,email',
         ];
     }
 

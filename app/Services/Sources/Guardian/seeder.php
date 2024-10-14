@@ -38,18 +38,21 @@ class seeder
         $api = static::$client;
 
         $categories = $api->getCategories();
-
+        
         foreach ($categories as $item) {
-            $output[] = $api->content()->setSection('technology')->fetch();
-            foreach ($output[0]->articles as $articles) {
-
+            $output[] = $api->fetch('', $item);
+            
+            foreach ($output[0] as $articles) {
+                
                 $database[] = [
-                    'author' => $articles->author ?? '',
+                    'author' => $articles->references->author ?? '',
                     'keywords' => json_encode($item),
                     'categories' => json_encode($item),
-                    'content' => $articles->content,
-                    'published_date' => Carbon::parse($articles->publishedAt)->format('Y-m-d H:i:s'),
+                    'content' => $articles->webUrl,
+                    'published_date' => Carbon::parse($articles->webPublicationDate)->format('Y-m-d H:i:s'),
                     'source_id' => (static::$source)->id,
+                    'created_at' => now(),
+                    'updated_at' => now(),
                 ];
             }
         }

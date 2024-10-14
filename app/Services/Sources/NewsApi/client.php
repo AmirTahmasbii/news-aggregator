@@ -34,11 +34,6 @@ class client
             return $this->parseError($th);
         }
     }
-
-    public function getId()
-    {
-        return $this->source->id;
-    }
     
     private function parseError($error)
     {

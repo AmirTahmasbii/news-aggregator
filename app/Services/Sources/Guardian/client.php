@@ -38,7 +38,6 @@ class client
             ->content()
             ->setQuery($q)
             ->setShowTags('keyword')
-            ->setShowFields('trailText')
             ->setShowReferences('author')
             ->setSection($category)
             ->setPageSize($page_size)

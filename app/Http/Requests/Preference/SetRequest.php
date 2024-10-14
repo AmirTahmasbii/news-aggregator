@@ -27,6 +27,8 @@ class SetRequest extends FormRequest
     {
         return [
             'source' => 'exists:sources,name',
+            'categories' => 'string',
+            'authors' => 'string',
         ];
     }
 

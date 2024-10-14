@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources\Preference;
+namespace App\Http\Resources\Article;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PreferenceResource extends JsonResource
+class ArticleResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,9 +16,12 @@ class PreferenceResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'author' => $this->author,
+            'keywords' => $this->keywords,
+            'categories' => $this->categories,
+            'content' => $this->content,
+            'published_date' => $this->published_date,
             'source' => $this->source->name,
-            'category' => $this->categories,
-            'authors' => $this->authors,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

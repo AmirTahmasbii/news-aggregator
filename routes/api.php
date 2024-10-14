@@ -21,6 +21,6 @@ Route::prefix('/preference')->middleware('auth:sanctum')->controller(PreferenceC
 
 Route::prefix('/article')->middleware('auth:sanctum')->controller(ArticleController::class)->group(function(){
     Route::get('/', 'fetch');
-    Route::get('/retrieve', 'retrieve');
-    Route::get('/search', 'search');
+    Route::get('/{article}', 'retrieve');
+    Route::get('/feed', 'feed');
 });
