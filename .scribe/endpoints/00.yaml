@@ -1,0 +1,337 @@
+name: 'User '
+description: |-
+
+  APIs for managing users
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/register
+    metadata:
+      groupName: 'User '
+      groupDescription: |-
+
+        APIs for managing users
+      subgroup: ''
+      subgroupDescription: ''
+      title: Register
+      description: 'User Register'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'min 3 chars.'
+        required: true
+        example: Amir
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      family:
+        name: family
+        description: 'min 3 chars.'
+        required: true
+        example: Amir
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      password:
+        name: password
+        description: 'at least 8 characters, included 1 uppercase, 1 lowercase, symbols and numbers.'
+        required: true
+        example: Amir1234!
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: ''
+        required: true
+        example: ex
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: hahn.bailey@example.org
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+    cleanBodyParameters:
+      name: Amir
+      family: Amir
+      password: Amir1234!
+      password_confirmation: ex
+      email: hahn.bailey@example.org
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status": "success", "data": {"token": "1|ugfdshgfpoayhosgdh"}}'
+        headers: []
+        description: success
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/login
+    metadata:
+      groupName: 'User '
+      groupDescription: |-
+
+        APIs for managing users
+      subgroup: ''
+      subgroupDescription: ''
+      title: Login
+      description: 'User Login'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: hahn.bailey@example.org
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      password:
+        name: password
+        description: 'at least 8 characters, included 1 uppercase, 1 lowercase, symbols and numbers.'
+        required: true
+        example: Amir1234!
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+    cleanBodyParameters:
+      email: hahn.bailey@example.org
+      password: Amir1234!
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status": "success", "data": {"token": "1|ugfdshgfpoayhosgdh]"}}'
+        headers: []
+        description: 'Email or Password is correct!'
+        custom: []
+      -
+        status: 401
+        content: '{"status": "error", "message": "Email or Password is incorrect!"}'
+        headers: []
+        description: 'Email or Password is incorrect!'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/logout
+    metadata:
+      groupName: 'User '
+      groupDescription: |-
+
+        APIs for managing users
+      subgroup: ''
+      subgroupDescription: ''
+      title: Logout
+      description: 'User Logout'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: '{YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status": "success", "message": "logout was success!"}'
+        headers: []
+        description: success
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 6f3EZdbPV1aachkg8e45Dv6
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/forgot-password
+    metadata:
+      groupName: 'User '
+      groupDescription: |-
+
+        APIs for managing users
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Send Reset Link Email'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: hankunding@example.org
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      email: hankunding@example.org
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status": "success", "message": "Reset link sent to your email."}'
+        headers: []
+        description: success
+        custom: []
+      -
+        status: 400
+        content: '{"status": "error", "message": "Unable to send reset link."}'
+        headers: []
+        description: error
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/reset-password
+    metadata:
+      groupName: 'User '
+      groupDescription: |-
+
+        APIs for managing users
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Reset Password'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: frederick53@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      token:
+        name: token
+        description: ''
+        required: true
+        example: sed
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: officia
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: ''
+        required: true
+        example: quasi
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      email: frederick53@example.com
+      token: sed
+      password: officia
+      password_confirmation: quasi
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status": "success", "message": "Password has been reset."}'
+        headers: []
+        description: success
+        custom: []
+      -
+        status: 400
+        content: '{"status": "error", "message": "Failed to reset password."}'
+        headers: []
+        description: error
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

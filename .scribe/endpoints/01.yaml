@@ -1,0 +1,125 @@
+name: Preferences
+description: |-
+
+  APIs for managing preferences
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/preference
+    metadata:
+      groupName: Preferences
+      groupDescription: |-
+
+        APIs for managing preferences
+      subgroup: ''
+      subgroupDescription: ''
+      title: Retrieve
+      description: 'Article Preferences Retrieve'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: '{YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status": "success","data": {"source": "news_api","category": "sports","author": "amir","created_at": "2024-10-10T10:14:48.000000Z","updated_at": "2024-10-10T10:14:48.000000Z"}}'
+        headers: []
+        description: success
+        custom: []
+      -
+        status: 404
+        content: '{"status": "error","message": "this user has not set preference!"}'
+        headers: []
+        description: error
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - E6cfVa4kPD51hZ86ag3devb
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/preference/set
+    metadata:
+      groupName: Preferences
+      groupDescription: |-
+
+        APIs for managing preferences
+      subgroup: ''
+      subgroupDescription: ''
+      title: Set
+      description: 'Article Preferences Set'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: '{YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      source:
+        name: source
+        description: 'between NEWSAPI, GUARDIAN, NYT.'
+        required: true
+        example: NEWSAPI
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      categories:
+        name: categories
+        description: ''
+        required: false
+        example: neque
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      authors:
+        name: authors
+        description: ''
+        required: false
+        example: delectus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      source: NEWSAPI
+      categories: neque
+      authors: delectus
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status": "success","data": {"source": "news_api","category": "sports","author": "amir","created_at": "2024-10-10T10:14:48.000000Z","updated_at": "2024-10-10T10:14:48.000000Z"}}'
+        headers: []
+        description: success
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - bahVE41d65f6e3P8gZkDacv
+    controller: null
+    method: null
+    route: null
+    custom: []

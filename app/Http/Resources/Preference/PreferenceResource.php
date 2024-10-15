@@ -15,7 +15,6 @@ class PreferenceResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->id,
             'source' => $this->source->name ?? '',
             'categories' => $this->categories,
             'authors' => $this->authors,
