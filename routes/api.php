@@ -22,6 +22,6 @@ Route::middleware(['throttle:api'])->group(function () {
     Route::prefix('/article')->middleware('auth:sanctum')->controller(ArticleController::class)->group(function () {
         Route::get('/feed', 'feed');
         Route::get('/', 'fetch');
-        Route::get('/{id}', 'retrieve');
+        Route::get('/{article}', 'retrieve');
     });
 });

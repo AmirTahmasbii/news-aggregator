@@ -108,7 +108,8 @@ class AuthController extends Controller
 
     /**
      * Reset Password
-     *
+     * 
+     * @bodyParam password string required at least 8 characters, included 1 uppercase, 1 lowercase, symbols and numbers. Example: Amir1234!
      * @response 200 scenario="success" {"status": "success", "message": "Password has been reset."}
      * @response 400 scenario="error" {"status": "error", "message": "Failed to reset password."}
      */
@@ -121,7 +122,7 @@ class AuthController extends Controller
                 'email' => $validatedData['email'],
                 'password' => $validatedData['password'],
                 'password_confirmation' => $validatedData['password_confirmation'],
-                'token' => $_REQUEST['token']
+                'token' => $validatedData['token']
             ],
             function ($user, $password) {
                 $user->password = Hash::make($password);
