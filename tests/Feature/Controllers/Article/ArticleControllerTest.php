@@ -18,9 +18,6 @@ class ArticleControllerTest extends TestCase
         // Create sample articles
         Article::factory()->count(5)->create();
 
-        // Create sample sources
-        Source::factory()->create();
-
         // Create a user and simulate authentication
         $user = User::factory()->create();
         $this->actingAs($user, 'sanctum');
