@@ -4,7 +4,6 @@ namespace Tests\Unit\Requests\User;
 
 use App\Http\Requests\User\ResetPasswordRequest;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
 use Tests\TestCase;

@@ -65,7 +65,6 @@ class client
 
     public function update()
     {
-        try {
             $database = [];
             $output[] =  $this->fetch('', '', (new DateTimeImmutable())->modify('-1 day'), (new DateTimeImmutable()));
 
@@ -87,9 +86,5 @@ class client
             Log::info('guardian updated');
 
             return ['status' => 'success', 'message' => 'updated success!'];
-        } catch (\Throwable $th) {
-            dd($th);
-            // return $this->parseError($th);
-        }
     }
 }

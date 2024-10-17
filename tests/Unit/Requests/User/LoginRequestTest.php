@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Http\Requests\User;
+namespace Tests\Unit\Requests\User;
 
 use App\Http\Requests\User\LoginRequest;
 use Illuminate\Foundation\Testing\RefreshDatabase;
