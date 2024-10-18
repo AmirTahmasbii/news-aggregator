@@ -74,7 +74,6 @@ You can run the project using Docker with the following steps:
 ## Migrations
 
 To apply the database migrations, run:
-
     ```bash
     docker-compose exec app php artisan migrate --seed
     ```
