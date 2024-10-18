@@ -1,0 +1,7 @@
+# Ignore unnecessary files and directories
+node_modules
+vendor
+.git
+.env
+storage/logs
+storage/app

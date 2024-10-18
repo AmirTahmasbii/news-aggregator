@@ -1,0 +1,72 @@
+services:
+  # PHP Service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: laravel_app
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+      - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - laravel
+    ports:
+      - "9000:9000"
+    environment:
+      - APP_NAME=${APP_NAME}
+      - APP_ENV=${APP_ENV}
+      - APP_KEY=${APP_KEY}
+      - APP_DEBUG=${APP_DEBUG}
+      - APP_URL=${APP_URL}
+      - APP_TIMEZONE=${APP_TIMEZONE}
+      - DB_CONNECTION=${DB_CONNECTION}
+      - DB_HOST=db
+      - DB_PORT=${DB_PORT}
+      - DB_DATABASE=${DB_DATABASE}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - CACHE_DRIVER=database
+      - SESSION_DRIVER=database
+
+  # Nginx Service
+  web:
+    image: nginx:alpine
+    container_name: laravel_web
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+    networks:
+      - laravel
+    depends_on:
+      - app
+
+  # MySQL Service
+  db:
+    image: mysql:8.0
+    container_name: laravel_db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: "laravel"
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - laravel
+    ports:
+      - "3307:3306"
+
+ 
+volumes:
+  dbdata:
+    driver: local
+
+networks:
+  laravel:
+    driver: bridge

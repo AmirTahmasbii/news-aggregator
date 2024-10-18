@@ -1,0 +1,1333 @@
+{
+	"info": {
+		"_postman_id": "eb4f6982-1a0e-4b2c-9d72-d3b164f59bd1",
+		"name": "news-aggregator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "19375173"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "amir",
+									"type": "text"
+								},
+								{
+									"key": "family",
+									"value": "tahmasbi",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Amir1234!",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "Amir1234!",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "example@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://127.0.0.1:8000/api/register"
+					},
+					"response": [
+						{
+							"name": "validation-error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "amir",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "family",
+											"value": "tahmasbi",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "Amir0913!",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Amir0913!",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "amirtahmasbi@gmail.com",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": "http://127.0.0.1:8000/api/register"
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Oct 2024 14:31:46 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": [\n        \"The name field is required.\",\n        \"The family field is required.\",\n        \"The password field is required.\",\n        \"The password confirmation field is required.\",\n        \"The email field is required.\"\n    ]\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "amir",
+											"type": "text"
+										},
+										{
+											"key": "family",
+											"value": "tahmasbi",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Amir1234!",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Amir1234!",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "example@gmail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://127.0.0.1:8000/api/register"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Oct 2024 14:32:41 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"3|lFq9NTJfjFCucEjwGfwI5gMdgUDWAZFwTTUpxdBm2c3dba64\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "password",
+									"value": "Amir1234!",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "example@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://127.0.0.1:8000/api/login"
+					},
+					"response": [
+						{
+							"name": "failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "password",
+											"value": "Amir1234!1",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "example@gmail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://127.0.0.1:8000/api/login"
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Oct 2024 14:34:04 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Email or Password is incorrect!\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "password",
+											"value": "Amir1234!",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "example@gmail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://127.0.0.1:8000/api/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Oct 2024 14:34:27 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"4|0ByTLWlWnyunrn9ra1SjhlqY2m3htGOYs7tFcBjt2f160a9e\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "4|0ByTLWlWnyunrn9ra1SjhlqY2m3htGOYs7tFcBjt2f160a9e"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "http://127.0.0.1:8000/api/logout"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": "http://127.0.0.1:8000/api/logout"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Oct 2024 14:35:43 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"logout was success!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "forgot-password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "example@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://127.0.0.1:8000/api/forgot-password"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "example@gmail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://127.0.0.1:8000/api/forgot-password"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Oct 2024 14:56:24 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Reset link sent to your email.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "reset-password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "token",
+									"value": "75b74ede14b642145d1f0fb6cb9bd5565443b087fd165e5759058874c871e454",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "example@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Amir4321!",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "Amir4321!",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/reset-password",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"reset-password"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "7e1dc4f19ceccb5d2762a6f110e9a4e8db476c776a34177c9d87293da24650f4&email=example%40gmail.com",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "token",
+											"value": "75b74ede14b642145d1f0fb6cb9bd5565443b087fd165e5759058874c871e454",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "example@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Amir4321!",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Amir4321!",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/reset-password",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"reset-password"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "7e1dc4f19ceccb5d2762a6f110e9a4e8db476c776a34177c9d87293da24650f4&email=example%40gmail.com",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 09 Oct 2024 16:53:13 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Password has been reset.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "preference",
+			"item": [
+				{
+					"name": "set",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "1|SsGJ4J4oUWHHxQ3kbEuhAXqVusMixQRS9G47sQx87a07126b"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "source",
+									"value": "guardian",
+									"type": "text"
+								},
+								{
+									"key": "categories",
+									"value": "sport,general,ali,animal",
+									"type": "text"
+								},
+								{
+									"key": "authors",
+									"value": "amirr",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://127.0.0.1:8000/api/preference/set"
+					},
+					"response": [
+						{
+							"name": "invalid-source-error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "source",
+											"value": "nesw_api",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "sport",
+											"type": "text"
+										},
+										{
+											"key": "author",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": "http://127.0.0.1:8000/api/preference/set"
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Oct 2024 10:13:24 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": [\n        \"The selected source is invalid.\"\n    ]\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "source",
+											"value": "news_api",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "sport",
+											"type": "text"
+										},
+										{
+											"key": "author",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": "http://127.0.0.1:8000/api/preference/set"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Oct 2024 10:14:48 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": 1,\n        \"source\": \"news_api\",\n        \"category\": \"\",\n        \"author\": \"\",\n        \"created_at\": \"2024-10-10T10:14:48.000000Z\",\n        \"updated_at\": \"2024-10-10T10:14:48.000000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "retrieve",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "1|SsGJ4J4oUWHHxQ3kbEuhAXqVusMixQRS9G47sQx87a07126b"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "http://127.0.0.1:8000/api/preference"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://127.0.0.1:8000/api/preference"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Oct 2024 10:16:43 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": 1,\n        \"source\": \"news_api\",\n        \"category\": \"\",\n        \"author\": \"\",\n        \"created_at\": \"2024-10-10T10:14:48.000000Z\",\n        \"updated_at\": \"2024-10-10T10:14:48.000000Z\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "article",
+			"item": [
+				{
+					"name": "fetch",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "1|8DbMJLKRCxXMRju3BjJfoUE095MN2txuWm47aAjX8297dbf5"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/article",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"article"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "NEWSAPI",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "4",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/article",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"article"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "NEWSAPI",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "4",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Oct 2024 15:38:12 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"total\": 1016,\n        \"per_page\": 20,\n        \"current_page\": 1,\n        \"articles\": [\n            {\n                \"id\": 917,\n                \"author\": \"Nilay Patel\",\n                \"keywords\": \"technology\",\n                \"categories\": \"technology\",\n                \"content\": \"Why Google is back in court for another monopoly showdown\\r\\nWhy Google is back in court for another monopoly showdown\\r\\n / Its round two in US v. Google; will Google take another L?\\r\\nToday on Decoder, … [+3165 chars]\",\n                \"published_date\": \"2024-09-19\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-13T13:17:36.000000Z\",\n                \"updated_at\": \"2024-10-13T13:17:36.000000Z\"\n            },\n            {\n                \"id\": 918,\n                \"author\": null,\n                \"keywords\": \"technology\",\n                \"categories\": \"technology\",\n                \"content\": \"[Removed]\",\n                \"published_date\": \"2024-10-04\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-13T13:17:36.000000Z\",\n                \"updated_at\": \"2024-10-13T13:17:36.000000Z\"\n            },\n            {\n                \"id\": 919,\n                \"author\": \"Amy Francombe\",\n                \"keywords\": \"technology\",\n                \"categories\": \"technology\",\n                \"content\": \"It all started when Donahoe took over as CEO and made the controversial decision to restructure Nikes product and marketing departments, eliminating long-established categories such as running, footb… [+3351 chars]\",\n                \"published_date\": \"2024-09-24\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-13T13:17:36.000000Z\",\n                \"updated_at\": \"2024-10-13T13:17:36.000000Z\"\n            },\n            {\n                \"id\": 920,\n                \"author\": \"Nilay Patel\",\n                \"keywords\": \"technology\",\n                \"categories\": \"technology\",\n                \"content\": \"Matt Strauss, head of Peacock and global streaming, has plans to keep you watching. Today, I’m talking with Matt Strauss, who is the chairman of direct-to-consumer at NBCUniversal. That’s a big fancy… [+65636 chars]\",\n                \"published_date\": \"2024-09-30\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-13T13:17:36.000000Z\",\n                \"updated_at\": \"2024-10-13T13:17:36.000000Z\"\n            },\n            {\n                \"id\": 921,\n                \"author\": \"Jess Weatherbed\",\n                \"keywords\": \"technology\",\n                \"categories\": \"technology\",\n                \"content\": \"Google Maps is cracking down on fake reviews\\r\\nGoogle Maps is cracking down on fake reviews\\r\\n / The service will now restrict reviews on places that post fakes, and warn users about such behavior.\\r\\nBy… [+1827 chars]\",\n                \"published_date\": \"2024-09-26\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-13T13:17:36.000000Z\",\n                \"updated_at\": \"2024-10-13T13:17:36.000000Z\"\n            },\n            {\n                \"id\": 922,\n                \"author\": \"Jay Peters\",\n                \"keywords\": \"technology\",\n                \"categories\": \"technology\",\n                \"content\": \"Epic has a plan for the rest of the decade\\r\\nEpic has a plan for the rest of the decade\\r\\n / Tim Sweeney says Epic is now financially sound. Next up, building the next generation of metaverse tools.\\r\\nB… [+7005 chars]\",\n                \"published_date\": \"2024-10-05\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-13T13:17:36.000000Z\",\n                \"updated_at\": \"2024-10-13T13:17:36.000000Z\"\n            },\n            {\n                \"id\": 923,\n                \"author\": null,\n                \"keywords\": \"technology\",\n                \"categories\": \"technology\",\n                \"content\": \"[Removed]\",\n                \"published_date\": \"2024-10-04\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-13T13:17:36.000000Z\",\n                \"updated_at\": \"2024-10-13T13:17:36.000000Z\"\n            },\n            {\n                \"id\": 924,\n                \"author\": \"Kyle Barr\",\n                \"keywords\": \"technology\",\n                \"categories\": \"technology\",\n                \"content\": \"HoloLens 2 was Microsofts attempt to become the big fish in the burgeoning VR space. Instead, for years, the headset floundered. On Tuesday, Microsoft finally declared that its HoloLens efforts have … [+3153 chars]\",\n                \"published_date\": \"2024-10-01\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-13T13:17:36.000000Z\",\n                \"updated_at\": \"2024-10-13T13:17:36.000000Z\"\n            },\n            {\n                \"id\": 925,\n                \"author\": \"Lucas Ropek\",\n                \"keywords\": \"technology\",\n                \"categories\": \"technology\",\n                \"content\": \"In an effort to find a power source big enough to fuel its ambitious artificial intelligence business, Microsoft has sought to revive a shuttered nuclear power plant in Pennsylvania. AI notably needs… [+3144 chars]\",\n                \"published_date\": \"2024-10-03\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-13T13:17:36.000000Z\",\n                \"updated_at\": \"2024-10-13T13:17:36.000000Z\"\n            },\n            {\n                \"id\": 926,\n                \"author\": \"Matthew Gault\",\n                \"keywords\": \"technology\",\n                \"categories\": \"technology\",\n                \"content\": \"A U.S. government watchdog group is worried that one of Washingtons nuclear agencies isnt doing enough to study and prevent the economic impact of a nuclear dirty bomb.\\r\\nThe September 30th report com… [+4050 chars]\",\n                \"published_date\": \"2024-10-08\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-13T13:17:36.000000Z\",\n                \"updated_at\": \"2024-10-13T13:17:36.000000Z\"\n            },\n            {\n                \"id\": 927,\n                \"author\": null,\n                \"keywords\": \"technology\",\n                \"categories\": \"technology\",\n                \"content\": \"Katrina Hibbert [not pictured] started a party tent business to help her mental health\\r\\nA former police officer has been handed more than £1m in compensation after it was ruled she had been discrimin… [+2600 chars]\",\n                \"published_date\": \"2024-09-25\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-13T13:17:36.000000Z\",\n                \"updated_at\": \"2024-10-13T13:17:36.000000Z\"\n            },\n            {\n                \"id\": 928,\n                \"author\": \"Todd Feathers\",\n                \"keywords\": \"technology\",\n                \"categories\": \"technology\",\n                \"content\": \"The Department of Justice has laid out its broad-strokes plan for ending Googles monopoly over internet search after winning its antitrust case against the company in August. The sweeping changes cou… [+2671 chars]\",\n                \"published_date\": \"2024-10-09\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-13T13:17:36.000000Z\",\n                \"updated_at\": \"2024-10-13T13:17:36.000000Z\"\n            },\n            {\n                \"id\": 929,\n                \"author\": \"msmash\",\n                \"keywords\": \"technology\",\n                \"categories\": \"technology\",\n                \"content\": \"Intel lost a bid to design and manufacture Sony's PlayStation 6 chip in 2022, dealing a blow to its contract manufacturing business. The contract, worth potentially billions in revenue, went to rival… [+793 chars]\",\n                \"published_date\": \"2024-09-16\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-13T13:17:36.000000Z\",\n                \"updated_at\": \"2024-10-13T13:17:36.000000Z\"\n            },\n            {\n                \"id\": 930,\n                \"author\": \"Monica Humphries\",\n                \"keywords\": \"technology\",\n                \"categories\": \"technology\",\n                \"content\": \"Business Insider's author sat in both economy and business class for long-haul flights.Monica Humphries/Business Insider\\r\\n<ul>\\n<li>I've flown across the world in both business class and economy cabin… [+5748 chars]\",\n                \"published_date\": \"2024-09-27\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-13T13:17:36.000000Z\",\n                \"updated_at\": \"2024-10-13T13:17:36.000000Z\"\n            },\n            {\n                \"id\": 931,\n                \"author\": \"tips@androidcentral.com (Nickolas Diaz)\",\n                \"keywords\": \"technology\",\n                \"categories\": \"technology\",\n                \"content\": \"What you need to know\\r\\n<ul><li>Motorola is expanding its business portfolio with the launch of the ThinkPhone 25.</li><li>The phone debuts with a 6.4-inch pOLED display protected by Gorilla Glass 7i … [+3498 chars]\",\n                \"published_date\": \"2024-10-01\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-13T13:17:36.000000Z\",\n                \"updated_at\": \"2024-10-13T13:17:36.000000Z\"\n            },\n            {\n                \"id\": 932,\n                \"author\": \"Anna Washenko\",\n                \"keywords\": \"technology\",\n                \"categories\": \"technology\",\n                \"content\": \"If you click 'Accept all', we and our partners, including 239 who are part of the IAB Transparency &amp; Consent Framework, will also store and/or access information on a device (in other words, use … [+678 chars]\",\n                \"published_date\": \"2024-09-18\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-13T13:17:36.000000Z\",\n                \"updated_at\": \"2024-10-13T13:17:36.000000Z\"\n            },\n            {\n                \"id\": 933,\n                \"author\": \"msmash\",\n                \"keywords\": \"technology\",\n                \"categories\": \"technology\",\n                \"content\": \"PayPal paid an invoice to Ernst &amp; Young LLP on Sept. 23 using PYUSD, the stablecoin the firm launched last year, relying on an SAP SE platform to complete the transaction. SAP's platform, known a… [+615 chars]\",\n                \"published_date\": \"2024-10-03\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-13T13:17:36.000000Z\",\n                \"updated_at\": \"2024-10-13T13:17:36.000000Z\"\n            },\n            {\n                \"id\": 934,\n                \"author\": \"Grace Eliza Goodwin,Geoff Weiss\",\n                \"keywords\": \"technology\",\n                \"categories\": \"technology\",\n                \"content\": \"Andreessen Horowitz-backed Flow was founded by Neumann to revolutionize residential living.Romain Maurice/Getty Images\\r\\n<ul><li>Adam Neumann is launching a WeWork rival called Workflow.</li><li>Workf… [+5587 chars]\",\n                \"published_date\": \"2024-10-03\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-13T13:17:36.000000Z\",\n                \"updated_at\": \"2024-10-13T13:17:36.000000Z\"\n            },\n            {\n                \"id\": 935,\n                \"author\": \"Rob Price\",\n                \"keywords\": \"technology\",\n                \"categories\": \"technology\",\n                \"content\": \"Kevin WeilPhoto by Horacio Villalobos/Corbis via Getty Images\\r\\n<ul><li>OpenAI exec Kevin Weil told BI the company has a \\\"great bench\\\" after CTO Mira Murati abruptly quit.</li><li>Weil, the buzzy AI f… [+3571 chars]\",\n                \"published_date\": \"2024-10-02\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-13T13:17:36.000000Z\",\n                \"updated_at\": \"2024-10-13T13:17:36.000000Z\"\n            },\n            {\n                \"id\": 936,\n                \"author\": \"Joi-Marie McKenzie\",\n                \"keywords\": \"technology\",\n                \"categories\": \"technology\",\n                \"content\": \"Gracia Lam for Business Insider\\r\\n<ul><li>This post originally appeared in the Insider Today newsletter.</li><li>You can sign up for Business Insider's daily newsletter here.</li></ul>Welcome back to … [+6935 chars]\",\n                \"published_date\": \"2024-09-21\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-13T13:17:36.000000Z\",\n                \"updated_at\": \"2024-10-13T13:17:36.000000Z\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "search & paginate",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/article?search=GUARDIAN&page=4",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"article"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "GUARDIAN",
+											"description": "non case sensitive"
+										},
+										{
+											"key": "page",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Oct 2024 15:46:21 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"total\": 316,\n        \"per_page\": 20,\n        \"current_page\": 4,\n        \"articles\": [\n            {\n                \"id\": 286,\n                \"author\": \"\",\n                \"keywords\": \"us-news\",\n                \"categories\": \"us-news\",\n                \"content\": \"https://www.theguardian.com/about/2018/jan/09/a-letter-from-the-editor-in-chief-on-the-new-guardian-and-observer\",\n                \"published_date\": \"2018-01-09\",\n                \"source\": \"Guardian\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"id\": 31,\n                \"author\": \"\",\n                \"keywords\": \"business-to-business\",\n                \"categories\": \"business-to-business\",\n                \"content\": \"https://www.theguardian.com/help/ng-interactive/2017/mar/17/contact-the-guardian-securely\",\n                \"published_date\": \"2017-03-17\",\n                \"source\": \"Guardian\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"id\": 287,\n                \"author\": \"\",\n                \"keywords\": \"us-news\",\n                \"categories\": \"us-news\",\n                \"content\": \"https://www.theguardian.com/help/ng-interactive/2017/mar/17/contact-the-guardian-securely\",\n                \"published_date\": \"2017-03-17\",\n                \"source\": \"Guardian\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"id\": 32,\n                \"author\": \"\",\n                \"keywords\": \"business-to-business\",\n                \"categories\": \"business-to-business\",\n                \"content\": \"https://www.theguardian.com/community-standards\",\n                \"published_date\": \"2009-05-07\",\n                \"source\": \"Guardian\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"id\": 288,\n                \"author\": \"\",\n                \"keywords\": \"us-news\",\n                \"categories\": \"us-news\",\n                \"content\": \"https://www.theguardian.com/community-standards\",\n                \"published_date\": \"2009-05-07\",\n                \"source\": \"Guardian\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"id\": 33,\n                \"author\": \"\",\n                \"keywords\": \"cardiff\",\n                \"categories\": \"cardiff\",\n                \"content\": \"https://www.theguardian.com/guardian-observer-style-guide-a\",\n                \"published_date\": \"2021-04-30\",\n                \"source\": \"Guardian\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"id\": 289,\n                \"author\": \"\",\n                \"keywords\": \"us-wellness\",\n                \"categories\": \"us-wellness\",\n                \"content\": \"https://www.theguardian.com/guardian-observer-style-guide-a\",\n                \"published_date\": \"2021-04-30\",\n                \"source\": \"Guardian\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"id\": 34,\n                \"author\": \"\",\n                \"keywords\": \"cardiff\",\n                \"categories\": \"cardiff\",\n                \"content\": \"https://www.theguardian.com/about/2018/jan/09/a-letter-from-the-editor-in-chief-on-the-new-guardian-and-observer\",\n                \"published_date\": \"2018-01-09\",\n                \"source\": \"Guardian\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"id\": 290,\n                \"author\": \"\",\n                \"keywords\": \"us-wellness\",\n                \"categories\": \"us-wellness\",\n                \"content\": \"https://www.theguardian.com/about/2018/jan/09/a-letter-from-the-editor-in-chief-on-the-new-guardian-and-observer\",\n                \"published_date\": \"2018-01-09\",\n                \"source\": \"Guardian\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"id\": 35,\n                \"author\": \"\",\n                \"keywords\": \"cardiff\",\n                \"categories\": \"cardiff\",\n                \"content\": \"https://www.theguardian.com/help/ng-interactive/2017/mar/17/contact-the-guardian-securely\",\n                \"published_date\": \"2017-03-17\",\n                \"source\": \"Guardian\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"id\": 291,\n                \"author\": \"\",\n                \"keywords\": \"us-wellness\",\n                \"categories\": \"us-wellness\",\n                \"content\": \"https://www.theguardian.com/help/ng-interactive/2017/mar/17/contact-the-guardian-securely\",\n                \"published_date\": \"2017-03-17\",\n                \"source\": \"Guardian\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"id\": 36,\n                \"author\": \"\",\n                \"keywords\": \"cardiff\",\n                \"categories\": \"cardiff\",\n                \"content\": \"https://www.theguardian.com/community-standards\",\n                \"published_date\": \"2009-05-07\",\n                \"source\": \"Guardian\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"id\": 292,\n                \"author\": \"\",\n                \"keywords\": \"us-wellness\",\n                \"categories\": \"us-wellness\",\n                \"content\": \"https://www.theguardian.com/community-standards\",\n                \"published_date\": \"2009-05-07\",\n                \"source\": \"Guardian\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"id\": 37,\n                \"author\": \"\",\n                \"keywords\": \"childrens-books-site\",\n                \"categories\": \"childrens-books-site\",\n                \"content\": \"https://www.theguardian.com/guardian-observer-style-guide-a\",\n                \"published_date\": \"2021-04-30\",\n                \"source\": \"Guardian\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"id\": 293,\n                \"author\": \"\",\n                \"keywords\": \"voluntary-sector-network\",\n                \"categories\": \"voluntary-sector-network\",\n                \"content\": \"https://www.theguardian.com/guardian-observer-style-guide-a\",\n                \"published_date\": \"2021-04-30\",\n                \"source\": \"Guardian\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"id\": 38,\n                \"author\": \"\",\n                \"keywords\": \"childrens-books-site\",\n                \"categories\": \"childrens-books-site\",\n                \"content\": \"https://www.theguardian.com/about/2018/jan/09/a-letter-from-the-editor-in-chief-on-the-new-guardian-and-observer\",\n                \"published_date\": \"2018-01-09\",\n                \"source\": \"Guardian\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"id\": 294,\n                \"author\": \"\",\n                \"keywords\": \"voluntary-sector-network\",\n                \"categories\": \"voluntary-sector-network\",\n                \"content\": \"https://www.theguardian.com/about/2018/jan/09/a-letter-from-the-editor-in-chief-on-the-new-guardian-and-observer\",\n                \"published_date\": \"2018-01-09\",\n                \"source\": \"Guardian\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"id\": 39,\n                \"author\": \"\",\n                \"keywords\": \"childrens-books-site\",\n                \"categories\": \"childrens-books-site\",\n                \"content\": \"https://www.theguardian.com/help/ng-interactive/2017/mar/17/contact-the-guardian-securely\",\n                \"published_date\": \"2017-03-17\",\n                \"source\": \"Guardian\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"id\": 295,\n                \"author\": \"\",\n                \"keywords\": \"voluntary-sector-network\",\n                \"categories\": \"voluntary-sector-network\",\n                \"content\": \"https://www.theguardian.com/help/ng-interactive/2017/mar/17/contact-the-guardian-securely\",\n                \"published_date\": \"2017-03-17\",\n                \"source\": \"Guardian\",\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"id\": 40,\n                \"author\": \"\",\n                \"keywords\": \"childrens-books-site\",\n                \"categories\": \"childrens-books-site\",\n                \"content\": \"https://www.theguardian.com/community-standards\",\n                \"published_date\": \"2009-05-07\",\n                \"source\": \"Guardian\",\n                \"created_at\": null,\n                \"updated_at\": null\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "retrieve",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "1|8DbMJLKRCxXMRju3BjJfoUE095MN2txuWm47aAjX8297dbf5"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "http://127.0.0.1:8000/api/article/1000"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://127.0.0.1:8000/api/article/1000"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 13 Oct 2024 15:58:02 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"articles\": {\n            \"id\": 1000,\n            \"author\": \"Alcynna Lloyd,Dan Latu,Jordan Pandy\",\n            \"keywords\": \"technology\",\n            \"categories\": \"technology\",\n            \"content\": \"Business Insider is seeking nominations for its Rising Stars of Real Estate 2024 list.filadendron/Getty Images\\r\\n<ul><li>Nominations are now open for Business Insider's fifth annual list of Rising Sta… [+1736 chars]\",\n            \"published_date\": \"2024-09-25\",\n            \"source\": \"NewsApi\",\n            \"created_at\": \"2024-10-13T13:17:36.000000Z\",\n            \"updated_at\": \"2024-10-13T13:17:36.000000Z\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "feed",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "1|mt5NXad4gydTlsncVgR0Mv5vUjhNQyjwzgBAEGBba8183002"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/article/feed?page=6",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"article",
+								"feed"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/article/feed?page=6",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"article",
+										"feed"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "6"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 11:52:20 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"total_items\": 208,\n        \"total_pages\": 11,\n        \"per_page\": 20,\n        \"current_page\": 6,\n        \"articles\": [\n            {\n                \"id\": 339,\n                \"author\": \"Joi-Marie McKenzie\",\n                \"keyword\": \"business\",\n                \"category\": \"business\",\n                \"content\": \"Gracia Lam for Business Insider\\r\\n<ul><li>This post originally appeared in the Insider Today newsletter.</li><li>You can sign up for Business Insider's daily newsletter here.</li></ul>Welcome back to … [+6935 chars]\",\n                \"published_date\": \"2024-09-21\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-14T11:45:17.000000Z\",\n                \"updated_at\": \"2024-10-14T11:45:17.000000Z\"\n            },\n            {\n                \"id\": 595,\n                \"author\": \"Polly Thompson\",\n                \"keyword\": \"general\",\n                \"category\": \"general\",\n                \"content\": \"Palmer Luckey wants to disrupt the defense industry through his company, Anduril.David Fitzgerald/Getty Images\\r\\n<ul><li>Palmer Luckey's defense tech startup Anduril is setting its sights on space.</l… [+2807 chars]\",\n                \"published_date\": \"2024-10-02\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-14T11:45:17.000000Z\",\n                \"updated_at\": \"2024-10-14T11:45:17.000000Z\"\n            },\n            {\n                \"id\": 340,\n                \"author\": \"Geoff Weiss\",\n                \"keyword\": \"business\",\n                \"category\": \"business\",\n                \"content\": \"Donald Trump is shielded by Secret Service agents after an assassination attempt in Pennsylvania in July, 2024.Anna Moneymaker via Getty Images\\r\\n<ul><li>A Senate report revealed the Secret Service fa… [+2902 chars]\",\n                \"published_date\": \"2024-09-25\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-14T11:45:17.000000Z\",\n                \"updated_at\": \"2024-10-14T11:45:17.000000Z\"\n            },\n            {\n                \"id\": 596,\n                \"author\": \"James Faris\",\n                \"keyword\": \"general\",\n                \"category\": \"general\",\n                \"content\": \"ESPN had shows like Mike & Mike, which ran from 2000 to 2017, but has fallen behind in podcasting.ESPN\\r\\n<ul><li>ESPN has a huge audience, a growing streaming presence, and a nascent betting app.</li>… [+3713 chars]\",\n                \"published_date\": \"2024-10-10\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-14T11:45:17.000000Z\",\n                \"updated_at\": \"2024-10-14T11:45:17.000000Z\"\n            },\n            {\n                \"id\": 341,\n                \"author\": \"Olivia Singh\",\n                \"keyword\": \"business\",\n                \"category\": \"business\",\n                \"content\": \"Joan Vassos stars on the inaugural season of \\\"The Golden Bachelorette.\\\"Brian Bowen Smith/Disney\\r\\n<ul><li>\\\"The Golden Bachelorette\\\" star Joan Vassos said she got dating advice from Golden Bachelor Ger… [+4438 chars]\",\n                \"published_date\": \"2024-09-18\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-14T11:45:17.000000Z\",\n                \"updated_at\": \"2024-10-14T11:45:17.000000Z\"\n            },\n            {\n                \"id\": 597,\n                \"author\": \"Sarah Jackson\",\n                \"keyword\": \"general\",\n                \"category\": \"general\",\n                \"content\": \"Some telecommunications providers are turning some of their data centers into \\\"AI factories,\\\" for one thing.© 2024 GSMA / MWC\\r\\n<ul><li>It feels like everyone is talking about how to use AI in their b… [+3587 chars]\",\n                \"published_date\": \"2024-10-12\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-14T11:45:17.000000Z\",\n                \"updated_at\": \"2024-10-14T11:45:17.000000Z\"\n            },\n            {\n                \"id\": 342,\n                \"author\": \"Helen Li,Emma Cosgrove\",\n                \"keyword\": \"business\",\n                \"category\": \"business\",\n                \"content\": \"CIA; HP; Dell Technologies; ezCater; Alyssa Powell/BI\\r\\nOn September 12, Business Insider convened a roundtable of top technology executives as part of our \\\"Build IT\\\" series.These executives spoke abo… [+14030 chars]\",\n                \"published_date\": \"2024-09-24\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-14T11:45:17.000000Z\",\n                \"updated_at\": \"2024-10-14T11:45:17.000000Z\"\n            },\n            {\n                \"id\": 598,\n                \"author\": \"Alcynna Lloyd,Dan Latu,Jordan Pandy\",\n                \"keyword\": \"general\",\n                \"category\": \"general\",\n                \"content\": \"Business Insider is seeking nominations for its Rising Stars of Real Estate 2024 list.filadendron/Getty Images\\r\\n<ul><li>Nominations are now open for Business Insider's fifth annual list of Rising Sta… [+1736 chars]\",\n                \"published_date\": \"2024-09-25\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-14T11:45:17.000000Z\",\n                \"updated_at\": \"2024-10-14T11:45:17.000000Z\"\n            },\n            {\n                \"id\": 343,\n                \"author\": \"Katherine Tangalakis-Lippert\",\n                \"keyword\": \"business\",\n                \"category\": \"business\",\n                \"content\": \"On debate night, JD Vance started from a disadvantage and had to rehabilitate his image — which he did well, experts told Business Insider.Michele Crowe/CBS via Getty Images\\r\\n<ul><li>Sen. JD Vance an… [+4078 chars]\",\n                \"published_date\": \"2024-10-02\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-14T11:45:17.000000Z\",\n                \"updated_at\": \"2024-10-14T11:45:17.000000Z\"\n            },\n            {\n                \"id\": 599,\n                \"author\": \"Morgan McFall-Johnsen\",\n                \"keyword\": \"general\",\n                \"category\": \"general\",\n                \"content\": \"NASA's OSIRIS-REx spacecraft collects a sample from an asteroid.NASA/Goddard/University of Arizona\\r\\n<ul><li>The second moon that Earth has captured in its orbit this month is an asteroid called 2024 … [+4892 chars]\",\n                \"published_date\": \"2024-09-30\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-14T11:45:17.000000Z\",\n                \"updated_at\": \"2024-10-14T11:45:17.000000Z\"\n            },\n            {\n                \"id\": 344,\n                \"author\": \"Insider Inc.\",\n                \"keyword\": \"business\",\n                \"category\": \"business\",\n                \"content\": \"The Road to IPO<!-- Meta data --> <!-- Browser favicons --><!-- Google Tag Manager - for BI use GTM-NS64GV - for Insider use GTM-K2K9CK --> (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\\n… [+2861 chars]\",\n                \"published_date\": \"2024-09-18\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-14T11:45:17.000000Z\",\n                \"updated_at\": \"2024-10-14T11:45:17.000000Z\"\n            },\n            {\n                \"id\": 600,\n                \"author\": \"Danny Gallagher\",\n                \"keyword\": \"general\",\n                \"category\": \"general\",\n                \"content\": \"If you click 'Accept all', we and our partners, including 240 who are part of the IAB Transparency &amp; Consent Framework, will also store and/or access information on a device (in other words, use … [+678 chars]\",\n                \"published_date\": \"2024-09-24\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-14T11:45:17.000000Z\",\n                \"updated_at\": \"2024-10-14T11:45:17.000000Z\"\n            },\n            {\n                \"id\": 345,\n                \"author\": \"Matt Turner\",\n                \"keyword\": \"business\",\n                \"category\": \"business\",\n                \"content\": \"Nike\\r\\n<ul><li>This post originally appeared in the Insider Today newsletter.</li><li>You can sign up for Business Insider's daily newsletter here.</li></ul>Welcome back to our Sunday edition. This is… [+5588 chars]\",\n                \"published_date\": \"2024-09-22\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-14T11:45:17.000000Z\",\n                \"updated_at\": \"2024-10-14T11:45:17.000000Z\"\n            },\n            {\n                \"id\": 601,\n                \"author\": \"insider@insider.com (Business Insider)\",\n                \"keyword\": \"general\",\n                \"category\": \"general\",\n                \"content\": \"Affiliate links for the products on this page are from partners that compensate us and terms apply to offers listed (see our advertiser disclosure with our list of partners for more details). However… [+6152 chars]\",\n                \"published_date\": \"2024-09-15\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-14T11:45:17.000000Z\",\n                \"updated_at\": \"2024-10-14T11:45:17.000000Z\"\n            },\n            {\n                \"id\": 346,\n                \"author\": \"Madeline Berg\",\n                \"keyword\": \"business\",\n                \"category\": \"business\",\n                \"content\": \"Sean Combs' income streams have taken loss after loss since allegations of sexual abuse came to light last year.MEGA/GC Images\\r\\n<ul><li>Sean Combs was once one of the world's top-earning entertainers… [+8906 chars]\",\n                \"published_date\": \"2024-10-09\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-14T11:45:17.000000Z\",\n                \"updated_at\": \"2024-10-14T11:45:17.000000Z\"\n            },\n            {\n                \"id\": 602,\n                \"author\": null,\n                \"keyword\": \"general\",\n                \"category\": \"general\",\n                \"content\": \"Sponsor content from Schneider Electric.\\r\\n\\\"&gt;\\r\\nSponsor content from Schneider Electric.\\r\\n\\\"&gt;\\r\\nBy Mourad Tamoud\\r\\nGeopolitical tensions, economic instability, spikes and troughs in demand, extreme … [+6131 chars]\",\n                \"published_date\": \"2024-10-10\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-14T11:45:17.000000Z\",\n                \"updated_at\": \"2024-10-14T11:45:17.000000Z\"\n            },\n            {\n                \"id\": 347,\n                \"author\": \"Peter Kafka\",\n                \"keyword\": \"business\",\n                \"category\": \"business\",\n                \"content\": \"Matthew Yglesias co-founded Vox.com, but left four years ago to start his own Substack. It's turned out be a very profitable decision.The Washington Post/Getty Images\\r\\n<ul><li>Matthew Yglesias, a pro… [+8445 chars]\",\n                \"published_date\": \"2024-10-02\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-14T11:45:17.000000Z\",\n                \"updated_at\": \"2024-10-14T11:45:17.000000Z\"\n            },\n            {\n                \"id\": 603,\n                \"author\": \"Gizmodo Deals\",\n                \"keyword\": \"general\",\n                \"category\": \"general\",\n                \"content\": \"In the rapidly evolving world of artificial intelligence, users are facing a growing challenge: the rising costs of AI-powered tools and services. This trend is exemplified by OpenAI’s recent plans f… [+3272 chars]\",\n                \"published_date\": \"2024-10-05\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-14T11:45:17.000000Z\",\n                \"updated_at\": \"2024-10-14T11:45:17.000000Z\"\n            },\n            {\n                \"id\": 348,\n                \"author\": \"Samantha Stokes\",\n                \"keyword\": \"business\",\n                \"category\": \"business\",\n                \"content\": \"From left: 2023 VC Rising Stars Vivien Ho, Toby Koker, Adina Tecklu, and Alysaa Co.Vivien Ho/Toby Koker/Adina Tecklu/Alysaa Co\\r\\n<ul><li>Insider is putting together a list of the best up-and-coming ve… [+1044 chars]\",\n                \"published_date\": \"2024-10-09\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-14T11:45:17.000000Z\",\n                \"updated_at\": \"2024-10-14T11:45:17.000000Z\"\n            },\n            {\n                \"id\": 604,\n                \"author\": null,\n                \"keyword\": \"general\",\n                \"category\": \"general\",\n                \"content\": \"If you click 'Accept all', we and our partners, including 239 who are part of the IAB Transparency &amp; Consent Framework, will also store and/or access information on a device (in other words, use … [+678 chars]\",\n                \"published_date\": \"2024-09-23\",\n                \"source\": \"NewsApi\",\n                \"created_at\": \"2024-10-14T11:45:17.000000Z\",\n                \"updated_at\": \"2024-10-14T11:45:17.000000Z\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/article/feed",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"article",
+										"feed"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "6",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 14 Oct 2024 11:53:21 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"this user has not set preference!\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

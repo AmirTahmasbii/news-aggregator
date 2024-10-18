@@ -1,68 +1,125 @@
-<<<<<<< HEAD
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Case Study - News Aggregator
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Table of Contents
 
-## About Laravel
+- [Introduction](#introduction)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Running the Project with Docker](#running-the-project-with-docker)
+- [Migrations](#migrations)
+- [Tests](#Running-Tests)
+- [Seeding the Database](#seeding-the-database)
+- [Postman Collection](#postman-collection)
+- [Documentation](#documentation)
+- [Contact](#contact)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Introduction
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+This project is to build a RESTful API for a news aggregator service that pulls articles from various
+sources and provides endpoints for a frontend application to consume.
 
-## Learning Laravel
+## Prerequisites
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Ensure you have the following installed on your system:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Installation
 
-## Laravel Sponsors
+To set up the project, follow these steps:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/AmirTahmasbii/news-aggregator.git
+    cd news-aggregator
+    ```
 
-### Premium Partners
+2. Copy the example environment file and modify it:
+    ```bash
+    cp .env.example .env
+    ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+3. Update the `.env` file with your environment variables (e.g., database credentials, API keys).
 
-## Contributing
+## Running the Project with Docker
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+You can run the project using Docker with the following steps:
 
-## Code of Conduct
+1. Build and start the containers:
+```bash
+    docker-compose up -d
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+2. Install the PHP dependencies:
+```bash
+    docker-compose exec app composer install
+```
 
-## Security Vulnerabilities
+3. Generate the Laravel application key:
+```bash
+    docker-compose exec app php artisan key:generate
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+4. Run the database migrations and seeders:
+```bash
+    docker-compose exec app php artisan migrate --seed
+```
 
-## License
+5. Access the application by visiting `http://localhost:8000` in your browser.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Migrations
 
+To apply the database migrations, run:
+
+```bash
+    docker-compose exec app php artisan migrate --seed
+```
+
+## Running Tests
+
+To run the tests for this project, follow the steps below:
+
+1. Install PHPUnit:
+
+    If PHPUnit is not already installed, you can add it to your     project:
+
+```bash
+    composer require --dev phpunit/phpunit ^9
+```
+2. Running Tests:
+
+    Use the following command to run all tests:
+
+```bash
+    ./vendor/bin/phpunit
+```
+3. Testing Features:
+
+    The test suite covers all core features.
+
+## Postman Collection
+
+In the root of this project, you'll find a Postman collection export file: `news-aggregator.postman_collection.json`. This file contains pre-configured API requests that can be imported directly into Postman for testing the API.
+
+### How to Use
+
+1. Download and install [Postman](https://www.postman.com/downloads/).
+2. Open Postman and click on **Import**.
+3. Select the `news-aggregator.postman_collection.json` file from the root of this project.
+4. Once imported, you can see and test all the API endpoints (such as creating a group, joining a group, sending messages, etc.) pre-configured within Postman.
+5. Click on [Document](https://documenter.getpostman.com/view/19375173/2sAXxMgtQX)
+
+You can now easily test the API by running the requests included in the collection.
+
+## documentation
+For detailed API documentation, visit the following link:
+    - [API Documentation](localhost:8000/docs)
+
+## contact
+If you have any questions or issues, feel free to reach out:
+
+[Amir Tahmasbi](amirthamasbi91@gmail.com)
