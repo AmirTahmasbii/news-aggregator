@@ -6,7 +6,6 @@
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Running the Project with Docker](#running-the-project-with-docker)
-- [Migrations](#migrations)
 - [Tests](#Running-Tests)
 - [Seeding the Database](#seeding-the-database)
 - [Postman Collection](#postman-collection)
@@ -71,12 +70,6 @@ You can run the project using Docker with the following steps:
 
 5. Access the application by visiting `http://localhost:8000` in your browser.
 
-## Migrations
-
-To apply the database migrations, run:
-    ```bash
-    docker-compose exec app php artisan migrate --seed
-    ```
 
 ## Running Tests
 
@@ -110,13 +103,12 @@ In the root of this project, you'll find a Postman collection export file: `news
 2. Open Postman and click on **Import**.
 3. Select the `news-aggregator.postman_collection.json` file from the root of this project.
 4. Once imported, you can see and test all the API endpoints (such as creating a group, joining a group, sending messages, etc.) pre-configured within Postman.
-5. Click on [Document](https://documenter.getpostman.com/view/19375173/2sAXxMgtQX)
 
 You can now easily test the API by running the requests included in the collection.
 
 ## documentation
 For detailed API documentation, visit the following link:
-    - [API Documentation](localhost:8000/docs)
+    - [API Documentation](http://localhost:8000/docs)
 
 ## contact
 If you have any questions or issues, feel free to reach out:
