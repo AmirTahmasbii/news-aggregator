@@ -10,7 +10,6 @@
 - [Seeding the Database](#seeding-the-database)
 - [Postman Collection](#postman-collection)
 - [Documentation](#documentation)
-- [Contact](#contact)
 
 ---
 
