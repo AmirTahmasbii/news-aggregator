@@ -50,24 +50,24 @@ To set up the project, follow these steps:
 You can run the project using Docker with the following steps:
 
 1. Build and start the containers:
-```bash
+    ```bash
     docker-compose up -d
-```
+    ```
 
 2. Install the PHP dependencies:
-```bash
+    ```bash
     docker-compose exec app composer install
-```
+    ```
 
 3. Generate the Laravel application key:
-```bash
+    ```bash
     docker-compose exec app php artisan key:generate
-```
+    ```
 
 4. Run the database migrations and seeders:
-```bash
+    ```bash
     docker-compose exec app php artisan migrate --seed
-```
+    ```
 
 5. Access the application by visiting `http://localhost:8000` in your browser.
 
@@ -75,9 +75,9 @@ You can run the project using Docker with the following steps:
 
 To apply the database migrations, run:
 
-```bash
+    ```bash
     docker-compose exec app php artisan migrate --seed
-```
+    ```
 
 ## Running Tests
 
@@ -87,16 +87,16 @@ To run the tests for this project, follow the steps below:
 
     If PHPUnit is not already installed, you can add it to your     project:
 
-```bash
+    ```bash
     composer require --dev phpunit/phpunit ^9
-```
+    ```
 2. Running Tests:
 
     Use the following command to run all tests:
 
-```bash
+    ```bash
     ./vendor/bin/phpunit
-```
+    ```
 3. Testing Features:
 
     The test suite covers all core features.
