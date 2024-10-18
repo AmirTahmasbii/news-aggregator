@@ -109,8 +109,3 @@ You can now easily test the API by running the requests included in the collecti
 ## documentation
 For detailed API documentation, visit the following link:
     - [API Documentation](http://localhost:8000/docs)
-
-## contact
-If you have any questions or issues, feel free to reach out:
-
-[Amir Tahmasbi](amirthamasbi91@gmail.com)
