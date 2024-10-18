@@ -106,6 +106,6 @@ In the root of this project, you'll find a Postman collection export file: `news
 
 You can now easily test the API by running the requests included in the collection.
 
-## documentation
+## Documentation
 For detailed API documentation, visit the following link:
     - [API Documentation](http://localhost:8000/docs)
